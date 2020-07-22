@@ -1,0 +1,94 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+
+}
+.btn{
+    padding: 10px 15px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}
+.main-wrap{
+	background-image: url('../images/error.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.container {
+	width:85vw;
+    margin: 0 auto;
+}
+.conteiner-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
+}
+.header{
+    width: 100vw;
+    min-height: 70px;
+    background-color: rgb(19, 55, 131);
+    color:white;
+}
+.input-search{
+    padding: 5px 10px;
+    margin-right: 20px;
+}
+.btn-search{
+    padding: 5px 10px;
+    color:rgb(19, 55, 131);
+    background: white;
+    font-weight: bold;
+}
+.menu-list{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.menu-item {
+	list-style: none;
+}
+.menu-link {
+	color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    margin-left: 30px;
+}
+.menu-link:hover{
+    text-decoration: underline;
+    
+}
+.main-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex: auto;
+}
+.title{
+    font-size: 30px;
+}
+.subtitle{
+    font-size: 24px;
+}
+.top-content{
+    text-align: center;
+}
+
+.btn-back{
+    font-size: 18px; 
+    background-color:rgb(19, 55, 131) ;
+    color:white;
+}
+.bottom-contant{
+   margin-bottom: 100px; 
+}
