@@ -12,16 +12,17 @@ paused();
 function pause(func, time) {
     return function () {
         console.log(`Функция выполниться с задержкой в ${time} секунды!`);
-        setTimeout(func, time * 1000);
+        let result = func.apply(this, arguments)
+        setTimeout(result, time * 1000);
     }
 }
 
-function doSomthing() {
-    console.log("work function doSomthing");
+ function doSomthing(str) {
+    console.log(`hello ${str}`);
 }
 
 let paused = pause(doSomthing, 3);
-paused();
+paused('Zina');
 
 
 /*2*. Требуется реализовать декоратор с параметрами returnObject, 
@@ -48,7 +49,7 @@ function func() {
     return [1, 2]
 }
 
-function returnObject(func = func, ...names) {
+function returnObject(func, ...names) {
     return function () {
         let array = func();
 

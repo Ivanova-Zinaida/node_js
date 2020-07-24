@@ -9,7 +9,7 @@ let mimeTypes = {
     '.jpg': 'image/jpeg',
     '.png': 'image/png',
     '.gif': 'image/gif',
-    '.ico': '.image/x-icon',
+    '.ico': 'image/x-icon'
 };
 
 
@@ -22,7 +22,7 @@ http.createServer((request, response) => {
         pathname = 'site' + request.url;
     extname = path.extname(pathname);
     mimeType = mimeTypes[extname];
-    if (extname === ".png" || extname === ".gif" || extname ==='.ico') {
+    if (extname === ".png" || extname === ".gif" || extname === ".ico") {
         try {
             let img = fs.readFileSync(pathname);
             console.log(`The file ${pathname} is read and sent to the client\n`);
