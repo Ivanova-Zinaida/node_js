@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <input type='button' id='btnData' value="запросить данные">
+    
+    <script>
+        let btnData = document.querySelector('#btnData');
+        let container = document.querySelector('#container');
+        btnData.addEventListener('click', function(){
+            console.log('click')
+            let request = new XMLHttpRequest();
+            let url = './ajax.html';
+            
+            request.open('GET', './ajax.html');
+            request.responseType = 'text';
+            request.onload = function(){
+                container.textContent = request.response;
+            }
+            request.send();
+
+            });
+
+    </script>
+</body>
+</html>
