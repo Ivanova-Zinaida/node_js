@@ -6,6 +6,7 @@ let mimeTypes = {
     '.js': 'text/javascript',
     '.html': 'text/html',
     '.css': 'text/css',
+    '.json': 'application/json',
 };
 
 function accept(request, response) {
@@ -13,26 +14,36 @@ function accept(request, response) {
 
     if (request.url === '/')
         pathname = './index.html';
-    else if(request.url === '/ajax.html')
-        pathname = './ajax.html';
     else
     pathname ='./' + request.url;
     
     extname = path.extname(pathname);
     mimeType = mimeTypes[extname];
 
+if (request.url == '/user.json') {
+    fs.readFile('user.json', 'utf-8', (err, data)=>{
+        if(err){
+            response.statusCode = 404;
+            response.end();
+         } else {
+           response.writeHead(200, {'Content-Type': 'application/json'}); 
+           response.end(JSON.stringify(data));
+        }
+    });
+  } else{
     fs.readFile(pathname, 'utf8', (err, data) => {
         if (err) {
             response.statusCode = 404;
             response.end();
         } else {
             response.writeHead(200, {'Content-Type': mimeType});
-            console.log(pathname)
             response.end(data);
                     
         }
     });       
 }
+}
 
 
 http.createServer(accept).listen(8080);
+

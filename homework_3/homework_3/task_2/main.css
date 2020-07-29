@@ -1,0 +1,13 @@
+*{
+    box-sizing: border-box;
+}
+
+#btnData{
+    border: none;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    padding:5px 10px;
+    font-size: 18px;
+    margin:10px;
+}
