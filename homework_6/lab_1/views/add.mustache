@@ -1,0 +1,20 @@
+{{>header}}
+<div class="container">
+  <div class="py-2 text-center">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="container">
+    <div class="text-center mb-4">
+      <form method="POST" action="{{route_url}}/add" enctype="application/x-www-form-urlencoded">
+        <p>Название: <input type="text" name="name" id="name" size="25" required /></p>
+        <p>Цена: <input type="text" pattern="\d+(,\d{2})?" name="price" id="price" size="25" required /></p>
+        <p>Описание: <br /><textarea name="desc" cols="40" rows="5"
+            placeholder="Краткое описание"></textarea>
+          <p>
+            <input class="btn btn-primary" type="submit" name="submit" id="submit" value="Отправить" />
+            <a href="{{route_url}}/" class="btn btn-secondary">Отмена</a>
+          </p>
+      </form>
+    </div>
+  </div>
+  {{>footer}}

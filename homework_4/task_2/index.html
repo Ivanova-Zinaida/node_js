@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>UPLOAD FILE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  html {
+    background: #222;
+    color: #fff;
+  }
+  .container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    align-content: center; 
+    justify-content: center; 
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div>
+      <input type="file" id="file">
+      <div id="msg"></div>
+    </div>
+  </div>
+
+  <script>
+    file.onchange = () => {
+        let xhr = new XMLHttpRequest();
+        let form = new FormData();
+        let upload_file = file.files[0];
+        form.append("file", upload_file);
+        xhr.open("POST", 'http://localhost:8080/', true);
+        xhr.send(form); 
+
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            msg.innerText = `Файл ${file.files[0].name} загружен на сервак`;
+          }
+          else
+            msg.innerText = 'Что-то пошло не так';
+        }
+    }
+  </script>
+
+</body>
+</html>
